@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         // Configure a JDK and Maven installation with these names in Jenkins Global Tool Configuration.
-        jdk 'JDK17'
+        jdk 'JDK21'
         maven 'Maven3'
     }
     stages {
@@ -10,11 +10,11 @@ pipeline {
             steps { checkout scm }
         }
         stage('Run Selenium tests') {
-            steps { sh 'mvn -B clean test' }
+            steps { bat 'mvn -B clean test' }
         }
-    }
+    }  
     post {
-        always {
+        always { 
             junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
         }
     }
