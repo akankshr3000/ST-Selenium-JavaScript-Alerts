@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Alerts, Confirms and Prompts - Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 760px; margin: 48px auto; padding: 24px; color: #172033; }
+    h1 { color: #183b68; }
+    button { padding: 10px 16px; margin: 8px 8px 8px 0; cursor: pointer; }
+    #result { margin-top: 24px; padding: 14px; background: #eef4fb; border-left: 4px solid #285b91; min-height: 20px; }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Dialog Testing Demo</h1>
+  <p>Use the buttons to trigger native JavaScript dialogs for Selenium automation.</p>
+  <button id="showAlert" onclick="showAlert()">Show Alert</button>
+  <button id="showConfirm" onclick="showConfirm()">Show Confirm</button>
+  <button id="showPrompt" onclick="showPrompt()">Show Prompt</button>
+  <p id="result" aria-live="polite">Test result will appear here.</p>
+  <script>
+    function showAlert() {
+      alert("This is a JavaScript alert!");
+      document.getElementById("result").textContent = "Alert accepted.";
+    }
+    function showConfirm() {
+      const accepted = confirm("Do you want to continue?");
+      document.getElementById("result").textContent =
+        accepted ? "You clicked OK." : "You clicked Cancel.";
+    }
+    function showPrompt() {
+      const name = prompt("Enter your name:");
+      document.getElementById("result").textContent =
+        name === null ? "Prompt cancelled." : "Hello, " + name + "!";
+    }
+  </script>
+</body>
+</html>
